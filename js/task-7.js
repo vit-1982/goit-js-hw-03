@@ -70,11 +70,10 @@ const account = {
    * Метод ищет и возвращает объект транзации по id
    */
   getTransactionDetails(id) {
-    if (this.transactions.length > 0) {
-      for (const transaction of this.transactions) {
-        if (transaction.id === id) {
-          return this.transactions[id - 1];
-        }
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      const transaction = this.transactions[i];
+      if (transaction.id === id) {
+        return this.transactions[i];
       }
     }
     return 'Такой транзакции не было!';
@@ -85,23 +84,21 @@ const account = {
    * определенного типа транзакции из всей истории транзакций
    */
   getTransactionTotal(type) {
-    if (this.transactions.length > 0) {
-      let transactionTotal = 0;
-      for (const transaction of this.transactions) {
-        if (transaction.type === type) {
-          transactionTotal += transaction.amount;
-        }
+    let transactionTotal = 0;
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      const transaction = this.transactions[i];
+      if (transaction.type === type) {
+        transactionTotal += transaction.amount;
       }
-      return transactionTotal;
     }
-    return 'Таких транзакций не было!';
+    return transactionTotal;
   },
 };
 
 account.deposit(100);
 account.deposit(100);
-account.withdraw(100);
+// account.withdraw(100);
 console.table(account.transactions);
 console.log(account.getBalance());
-console.log(account.getTransactionDetails(3));
-console.log(account.getTransactionTotal('deposit'));
+console.log(account.getTransactionDetails(2));
+console.log(account.getTransactionTotal('withdraw'));

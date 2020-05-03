@@ -6,7 +6,6 @@ const products = [
 ];
 
 const calculateTotalPrice = function (allProdcuts, productName) {
-  console.table(allProdcuts);
   for (let i = 0; i < allProdcuts.length; i += 1) {
     const product = allProdcuts[i];
     if (productName === product.name) {

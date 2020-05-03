@@ -23,10 +23,10 @@ const findBestEmployee = function (employees) {
  */
 console.log(
   findBestEmployee({
-    ann,
-    // david: 35,
-    // helen: 1,
-    // lorence: 99,
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
   }),
 ); // lorence
 
